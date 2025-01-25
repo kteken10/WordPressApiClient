@@ -136,6 +136,8 @@ The application includes custom exception handling for:
 - Verify authentication credentials
 - Review error messages in console
 
+
+GITHUB REPO :https://github.com/kteken10/WordPressApiClient
 ## Dependencies
 
 - `requests` for API calls
