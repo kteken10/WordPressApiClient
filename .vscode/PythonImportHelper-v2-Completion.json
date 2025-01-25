@@ -1,0 +1,499 @@
+[
+    {
+        "label": "WordPressApiClient",
+        "importPath": "client",
+        "description": "client",
+        "isExtraImport": true,
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressApiClient",
+        "importPath": "client",
+        "description": "client",
+        "isExtraImport": true,
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressApiClient",
+        "importPath": "client",
+        "description": "client",
+        "isExtraImport": true,
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressApiClient",
+        "importPath": "client",
+        "description": "client",
+        "isExtraImport": true,
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressApiClient",
+        "importPath": "client",
+        "description": "client",
+        "isExtraImport": true,
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "PagesEndpoint",
+        "importPath": "endpoints.pages",
+        "description": "endpoints.pages",
+        "isExtraImport": true,
+        "detail": "endpoints.pages",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "isExtraImport": true,
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "ButtonContainer",
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "isExtraImport": true,
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "isExtraImport": true,
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "ButtonContainer",
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "isExtraImport": true,
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "isExtraImport": true,
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "PostsEndpoint",
+        "importPath": "endpoints.posts",
+        "description": "endpoints.posts",
+        "isExtraImport": true,
+        "detail": "endpoints.posts",
+        "documentation": {}
+    },
+    {
+        "label": "ThemesEndpoint",
+        "importPath": "endpoints.templates",
+        "description": "endpoints.templates",
+        "isExtraImport": true,
+        "detail": "endpoints.templates",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLElement",
+        "importPath": "ui.element",
+        "description": "ui.element",
+        "isExtraImport": true,
+        "detail": "ui.element",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLElement",
+        "importPath": "ui.element",
+        "description": "ui.element",
+        "isExtraImport": true,
+        "detail": "ui.element",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLElement",
+        "importPath": "ui.element",
+        "description": "ui.element",
+        "isExtraImport": true,
+        "detail": "ui.element",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLElement",
+        "importPath": "ui.element",
+        "description": "ui.element",
+        "isExtraImport": true,
+        "detail": "ui.element",
+        "documentation": {}
+    },
+    {
+        "label": "Container",
+        "importPath": "ui.container",
+        "description": "ui.container",
+        "isExtraImport": true,
+        "detail": "ui.container",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPBasicAuth",
+        "importPath": "requests.auth",
+        "description": "requests.auth",
+        "isExtraImport": true,
+        "detail": "requests.auth",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "get_auth",
+        "importPath": "auth",
+        "description": "auth",
+        "isExtraImport": true,
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "create_page_with_buttons",
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "isExtraImport": true,
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "PagesEndpoint",
+        "kind": 6,
+        "importPath": "endpoints.pages",
+        "description": "endpoints.pages",
+        "peekOfCode": "class PagesEndpoint:\n    def __init__(self, client: WordPressApiClient):\n        self.client = client\n    def create_page(self, title, content, status):\n        \"\"\"\n        Crée une page dans WordPress.\n        :param title: Le titre de la page.\n        :param content: Le contenu HTML de la page.\n        :param status: Le statut de publication (e.g., \"publish\", \"draft\").\n        :return: La réponse de l'API WordPress.",
+        "detail": "endpoints.pages",
+        "documentation": {}
+    },
+    {
+        "label": "PostsEndpoint",
+        "kind": 6,
+        "importPath": "endpoints.posts",
+        "description": "endpoints.posts",
+        "peekOfCode": "class PostsEndpoint:\n    def __init__(self, client: WordPressApiClient):\n        self.client = client\n    def create_post(self, title, content, status):\n        \"\"\"\n        Crée un nouvel article dans WordPress.\n        :param title: Le titre de l'article.\n        :param content: Le contenu HTML de l'article.\n        :param status: Le statut de publication (e.g., \"publish\", \"draft\").\n        :return: La réponse de l'API WordPress.",
+        "detail": "endpoints.posts",
+        "documentation": {}
+    },
+    {
+        "label": "ThemesEndpoint",
+        "kind": 6,
+        "importPath": "endpoints.templates",
+        "description": "endpoints.templates",
+        "peekOfCode": "class ThemesEndpoint:\n    def __init__(self, client: WordPressApiClient):\n        self.client = client\n    def create_template(self, name, header_title):\n        slug = name.lower().replace(\" \", \"-\")\n        payload = {\n            \"title\": name,\n            \"slug\": slug,\n            \"content\": f\"<h1>{header_title}</h1>\",  # Contenu par défaut.\n            \"excerpt\": \"Résumé automatique\",",
+        "detail": "endpoints.templates",
+        "documentation": {}
+    },
+    {
+        "label": "create_page_with_buttons",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:\n        print(\"Veuillez entrer un nombre valide.\")\n        return",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "add_more_buttons",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    while True:\n        operation = input(\"\\nQue souhaitez-vous faire ? (ajouter/mettre à jour/supprimer/fin) : \").strip().lower()\n        if operation == \"ajouter\":\n            try:\n                num_new_buttons = int(input(\"Combien de nouveaux boutons souhaitez-vous ajouter ? \"))\n                if num_new_buttons <= 0:\n                    print(\"Le nombre de boutons doit être supérieur à zéro.\")\n                    continue\n            except ValueError:",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "update_button",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def update_button(existing_buttons):\n    try:\n        print(\"\\nListe des boutons existants :\")\n        for index, button in enumerate(existing_buttons):\n            print(f\"{index + 1}. {button.label} - {button.link}\")\n        button_index = int(input(\"\\nQuel bouton souhaitez-vous mettre à jour ? (Entrez le numéro) \")) - 1\n        if 0 <= button_index < len(existing_buttons):\n            button = existing_buttons[button_index]\n            button.label = input(f\"Nouveau texte du bouton (actuel: {button.label}): \") or button.label\n            button.link = input(f\"Nouveau lien du bouton (actuel: {button.link}): \") or button.link",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "delete_button",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def delete_button(existing_buttons):\n    try:\n        print(\"\\nListe des boutons existants :\")\n        for index, button in enumerate(existing_buttons):\n            print(f\"{index + 1}. {button.label} - {button.link}\")\n        button_index = int(input(\"\\nQuel bouton souhaitez-vous supprimer ? (Entrez le numéro) \")) - 1\n        if 0 <= button_index < len(existing_buttons):\n            deleted_button = existing_buttons.pop(button_index)\n            print(f\"Bouton '{deleted_button.label}' supprimé avec succès.\")\n            return True",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\npages_endpoint = PagesEndpoint(client)\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "pages_endpoint",
+        "kind": 5,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "pages_endpoint = PagesEndpoint(client)\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "generate_and_publish_articles",
+        "kind": 2,
+        "importPath": "interactions.posts",
+        "description": "interactions.posts",
+        "peekOfCode": "def generate_and_publish_articles():\n    try:\n        max_buttons = int(input(\"Combien de boutons souhaitez-vous créer sur votre Post ? \"))\n        if max_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:\n        print(\"Veuillez entrer un nombre valide.\")\n        return\n    for i in range(1, max_buttons + 1):",
+        "detail": "interactions.posts",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "interactions.posts",
+        "description": "interactions.posts",
+        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\nposts_endpoint = PostsEndpoint(client)\n# Cas d'utilisation pour générer et publier des articles\ndef generate_and_publish_articles():\n    try:\n        max_buttons = int(input(\"Combien de boutons souhaitez-vous créer sur votre Post ? \"))\n        if max_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "detail": "interactions.posts",
+        "documentation": {}
+    },
+    {
+        "label": "posts_endpoint",
+        "kind": 5,
+        "importPath": "interactions.posts",
+        "description": "interactions.posts",
+        "peekOfCode": "posts_endpoint = PostsEndpoint(client)\n# Cas d'utilisation pour générer et publier des articles\ndef generate_and_publish_articles():\n    try:\n        max_buttons = int(input(\"Combien de boutons souhaitez-vous créer sur votre Post ? \"))\n        if max_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:\n        print(\"Veuillez entrer un nombre valide.\")",
+        "detail": "interactions.posts",
+        "documentation": {}
+    },
+    {
+        "label": "create_template_with_user_buttons",
+        "kind": 2,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "def create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "update_template_buttons",
+        "kind": 2,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "def update_template_buttons(template_id, buttons):\n    \"\"\"\n    Met à jour le contenu du template avec des boutons dynamiques.\n    \"\"\"\n    containers = create_button_containers(buttons)\n    content = f\"<div>{''.join(containers)}</div>\"\n    # Mise à jour du template via l'API\n    update_response = templates_endpoint.update_template(\n        template_id=template_id,\n        content=content",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "create_button_containers",
+        "kind": 2,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "def create_button_containers(buttons):\n    \"\"\"\n    Organise les boutons en containers (3 boutons par ligne).\n    \"\"\"\n    containers = []\n    while buttons:\n        num_in_container = min(3, len(buttons))  # 3 boutons maximum par ligne\n        container_buttons = buttons[:num_in_container]\n        buttons = buttons[num_in_container:]\n        # Création de la structure HTML pour chaque ligne de boutons",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_templates",
+        "kind": 2,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "def list_all_templates():\n    \"\"\"\n    Liste tous les templates disponibles.\n    \"\"\"\n    templates = templates_endpoint.get_all_templates()\n    # Gestion de la réponse pour l'affichage des templates\n    if templates['status'] == \"success\":\n        print(\"Liste des templates disponibles :\")\n        for template in templates['data']:\n            print(f\"- ID : {template['id']}, Nom : {template['title']}\")",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\ntemplates_endpoint = ThemesEndpoint(client)\ndef create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "templates_endpoint",
+        "kind": 5,
+        "importPath": "interactions.templates",
+        "description": "interactions.templates",
+        "peekOfCode": "templates_endpoint = ThemesEndpoint(client)\ndef create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return",
+        "detail": "interactions.templates",
+        "documentation": {}
+    },
+    {
+        "label": "Button",
+        "kind": 6,
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "peekOfCode": "class Button(HTMLElement):\n    def __init__(self, label: str, link: str, css_class: str = \"\", styles: str = \"\", target: str = \"_self\"):\n        super().__init__(tag=\"a\", content=label, css_class=css_class, styles=styles, href=link, target=target)\nclass ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):",
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "ButtonContainer",
+        "kind": 6,
+        "importPath": "ui.button",
+        "description": "ui.button",
+        "peekOfCode": "class ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):\n            row_buttons = self.buttons[i:i + 3]\n            row = Container(\n                content=\"\".join([button.render() for button in row_buttons]),",
+        "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "Container",
+        "kind": 6,
+        "importPath": "ui.container",
+        "description": "ui.container",
+        "peekOfCode": "class Container(HTMLElement):\n    def __init__(self, content: str = \"\", css_class: str = \"\", styles: str = \"\", children: list = None):\n        \"\"\"\n        Initialisation du container (div).\n        :param content: Le contenu HTML à inclure dans le div.\n        :param css_class: La classe CSS à appliquer au div.\n        :param styles: Les styles CSS en ligne à appliquer au div.\n        :param children: Liste des éléments enfants (autres objets HTMLElement).\n        \"\"\"\n        if children is None:",
+        "detail": "ui.container",
+        "documentation": {}
+    },
+    {
+        "label": "HTMLElement",
+        "kind": 6,
+        "importPath": "ui.element",
+        "description": "ui.element",
+        "peekOfCode": "class HTMLElement:\n    def __init__(self, tag: str, content: str = \"\", css_class: str = \"\", styles: str = \"\", **attributes):\n        self.tag = tag\n        self.content = content\n        self.css_class = css_class\n        self.styles = styles\n        self.attributes = attributes  \n    def render(self) -> str:\n        \"\"\"\n        Génère l'élément HTML.",
+        "detail": "ui.element",
+        "documentation": {}
+    },
+    {
+        "label": "Image",
+        "kind": 6,
+        "importPath": "ui.image",
+        "description": "ui.image",
+        "peekOfCode": "class Image(HTMLElement):\n    def __init__(self, src: str, alt: str = \"\", css_class: str = \"\", styles: str = \"\"):\n        content = f'<img src=\"{src}\" alt=\"{alt}\" />'\n        super().__init__(tag=\"img\", content=content, css_class=css_class, styles=styles)\n    def render(self) -> str:\n        return super().render()",
+        "detail": "ui.image",
+        "documentation": {}
+    },
+    {
+        "label": "Text",
+        "kind": 6,
+        "importPath": "ui.text",
+        "description": "ui.text",
+        "peekOfCode": "class Text(HTMLElement):\n    def __init__(self, content: str, css_class: str = \"\", styles: str = \"\"):\n        super().__init__(tag=\"p\", content=content, css_class=css_class, styles=styles)\n    def render(self) -> str:\n        return super().render()",
+        "detail": "ui.text",
+        "documentation": {}
+    },
+    {
+        "label": "get_auth",
+        "kind": 2,
+        "importPath": "auth",
+        "description": "auth",
+        "peekOfCode": "def get_auth():\n    user = os.getenv(\"WORDPRESS_USER\")\n    password = os.getenv(\"WORDPRESS_API_PASSWORD\")\n    if not user or not password:\n        raise ValueError(\"Les identifiants WordPress ne sont pas correctement configurés.\")\n    return HTTPBasicAuth(user, password)",
+        "detail": "auth",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressApiClient",
+        "kind": 6,
+        "importPath": "client",
+        "description": "client",
+        "peekOfCode": "class WordPressApiClient:\n    def __init__(self, base_url):\n        self.base_url = base_url\n        self.auth = get_auth()\n    def create(self, endpoint, data):\n        \"\"\"\n        Crée une ressource dans WordPress.\n        \"\"\"\n        url = f\"{self.base_url}/{endpoint}\"\n        print(f\"Requête POST vers {url} avec les données : {data}\")  # Debugging.",
+        "detail": "client",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_URL",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "BASE_URL = 'https://amungwa.online/wp-json/wp/v2'",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "WordPressAPIError",
+        "kind": 6,
+        "importPath": "exceptions",
+        "description": "exceptions",
+        "peekOfCode": "class WordPressAPIError(Exception):\n    pass\nclass AuthenticationError(WordPressAPIError):\n    pass",
+        "detail": "exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "AuthenticationError",
+        "kind": 6,
+        "importPath": "exceptions",
+        "description": "exceptions",
+        "peekOfCode": "class AuthenticationError(WordPressAPIError):\n    pass",
+        "detail": "exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()  \n        elif choix == \"2\":\n            print(\"Merci d'avoir utilisé WordPress Page Manager. Au revoir!\")\n            break\n        else:",
+        "detail": "main",
+        "documentation": {}
+    }
+]
