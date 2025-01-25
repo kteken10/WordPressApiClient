@@ -3,7 +3,7 @@ from interactions.pages import create_page_with_buttons, modify_existing_page, d
 def launchWordPressApi():
     print("Bienvenue dans l'application WordPress Page Manager!")
     while True:
-        choix = input("\nQue souhaitez-vous faire ?\n1. Créer une nouvelle page avec des boutons\n2. Modifier une page existante\n3. Supprimer une page\n4. Lister toutes les pages disponibles\n5. Quitter\nVotre choix : ")
+        choix = int(input("\nQue souhaitez-vous faire ?\n1. Créer une nouvelle page avec des boutons\n2. Modifier une page existante\n3. Supprimer une page\n4. Lister toutes les pages disponibles\n5. Quitter\nVotre choix : "))
 
         if choix == "1":
             create_page_with_buttons()

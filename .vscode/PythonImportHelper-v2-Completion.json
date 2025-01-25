@@ -459,7 +459,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def launchWordPressApi():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \")\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
+        "peekOfCode": "def launchWordPressApi():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = int(input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \"))\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
         "detail": "main",
         "documentation": {}
     }

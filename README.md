@@ -136,7 +136,6 @@ The application includes custom exception handling for:
 ## Dependencies
 
 - `requests` for API calls
-- `sqlite3` for local database
-- `json` for data parsing
+-  `python-dotenv `
 
 
