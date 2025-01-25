@@ -138,14 +138,6 @@
         "documentation": {}
     },
     {
-        "label": "Container",
-        "importPath": "ui.container",
-        "description": "ui.container",
-        "isExtraImport": true,
-        "detail": "ui.container",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -269,7 +261,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")\n    # Ajouter le style personnalisé pour le titre\n    content = f\"\"\"\n    <h1 style=\"\n        position: relative;\n        text-align: center;\n        font-size: 2.5rem;\n        font-weight: bold;",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -305,7 +297,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Ajout de boutons comme expliqué dans la fonction précédente\n    pass\n# Fonction pour supprimer un bouton d'une page\ndef delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Ajout de boutons comme expliqué dans la fonction précédente\n    pass\n# Fonction pour supprimer un bouton d'une page\ndef delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas\ncreate_page_with_buttons()",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -314,7 +306,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
+        "peekOfCode": "def delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas\ncreate_page_with_buttons()",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -368,7 +360,7 @@
         "kind": 6,
         "importPath": "ui.button",
         "description": "ui.button",
-        "peekOfCode": "class Button(HTMLElement):\n    def __init__(self, label: str, link: str, css_class: str = \"\", styles: str = \"\", target: str = \"_self\"):\n        super().__init__(tag=\"a\", content=label, css_class=css_class, styles=styles, href=link, target=target)\nclass ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):",
+        "peekOfCode": "class Button(HTMLElement):\n    def __init__(self, label: str, link: str, css_class: str = \"\", styles: str = \"\", target: str = \"_self\"):\n        # Spécifie la largeur et le centrage pour chaque bouton\n        button_styles = f\"{styles} width: 320px; color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 30px; display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;\" \n        super().__init__(tag=\"a\", content=label, css_class=css_class, styles=button_styles, href=link, target=target)\nclass ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:",
         "detail": "ui.button",
         "documentation": {}
     },
@@ -377,7 +369,7 @@
         "kind": 6,
         "importPath": "ui.button",
         "description": "ui.button",
-        "peekOfCode": "class ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):\n            row_buttons = self.buttons[i:i + 3]\n            row = Container(\n                content=\"\".join([button.render() for button in row_buttons]),",
+        "peekOfCode": "class ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):\n            row_buttons = self.buttons[i:i + 3]\n            row_content = \"\".join([button.render() for button in row_buttons])\n            # Conteneur avec largeur de 1000px et des boutons avec une largeur de 300px",
         "detail": "ui.button",
         "documentation": {}
     },
@@ -463,11 +455,11 @@
         "documentation": {}
     },
     {
-        "label": "main",
+        "label": "launchWordPressApi",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
+        "peekOfCode": "def launchWordPressApi():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \")\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
         "detail": "main",
         "documentation": {}
     }

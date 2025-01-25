@@ -41,6 +41,39 @@ def create_page_with_buttons():
     # Demander à l'utilisateur le titre de la page
     title = input("Entrez le titre de la page : ")
 
+    # Ajouter le style personnalisé pour le titre
+    content = f"""
+    <h1 style="
+        position: relative;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+    ">
+        {title}
+        <span style="
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: #2674F0;
+            left: -120px;
+        "></span>
+        <span style="
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 2px;
+            background-color: #2674F0;
+            right: -120px;
+        "></span>
+    </h1>
+    """
+
     # Demander à l'utilisateur combien de boutons il veut publier
     try:
         num_buttons = int(input("Combien de boutons souhaitez-vous ajouter à la page ? "))
@@ -59,7 +92,7 @@ def create_page_with_buttons():
         if define_custom_labels == 'oui':
             label = input(f"Entrez le label du bouton {i+1} : ")
         else:
-            label = f"Bouton {i + 1}"
+            label = f"Compréhension Ecrite Série {i + 1}"
 
         link = input(f"Entrez le lien pour le bouton {i+1} : ")
 
@@ -67,12 +100,12 @@ def create_page_with_buttons():
         buttons.append(Button(
             label=label,
             link=link,
-            styles="color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 30px;"
+            styles=""
         ))
 
     # Créer un container pour les boutons
     containers = ButtonContainer(buttons)
-    content = containers.render()
+    content += containers.render()
 
     # Créer la page initiale avec ces boutons
     create_response = pages_endpoint.create_page(
@@ -157,3 +190,4 @@ def delete_button(page_id):
 
 # Lancer la création de la page avec des boutons
 create_table()  # Crée la table si elle n'existe pas
+create_page_with_buttons()
