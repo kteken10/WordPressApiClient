@@ -6,8 +6,7 @@ wordpress_api_client/
 │   ├── endpoints/
 │   │   ├── __init__.py            # Init du module endpoints
 │   │   ├── posts.py               # Gestion des posts
-│   │   ├── users.py               # Gestion des utilisateurs
-│   │   ├── categories.py          # Gestion des catégories
+│   │   ├── page.py                # Gestion des pages
 │   ├── auth.py                    # Gestion de l'authentification
 │   ├── exceptions.py              # Définition des exceptions personnalisées
 │   └── utils.py                   # Fonctions utilitaires (formatage, etc.)

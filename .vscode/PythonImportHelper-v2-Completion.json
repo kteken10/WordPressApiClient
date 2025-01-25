@@ -24,22 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "WordPressApiClient",
-        "importPath": "client",
-        "description": "client",
-        "isExtraImport": true,
-        "detail": "client",
-        "documentation": {}
-    },
-    {
-        "label": "WordPressApiClient",
-        "importPath": "client",
-        "description": "client",
-        "isExtraImport": true,
-        "detail": "client",
-        "documentation": {}
-    },
-    {
         "label": "json",
         "kind": 6,
         "isExtraImport": true,
@@ -49,11 +33,12 @@
         "documentation": {}
     },
     {
-        "label": "BASE_URL",
-        "importPath": "config",
-        "description": "config",
+        "label": "sqlite3",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "config",
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
         "documentation": {}
     },
     {
@@ -113,27 +98,11 @@
         "documentation": {}
     },
     {
-        "label": "Button",
-        "importPath": "ui.button",
-        "description": "ui.button",
-        "isExtraImport": true,
-        "detail": "ui.button",
-        "documentation": {}
-    },
-    {
         "label": "PostsEndpoint",
         "importPath": "endpoints.posts",
         "description": "endpoints.posts",
         "isExtraImport": true,
         "detail": "endpoints.posts",
-        "documentation": {}
-    },
-    {
-        "label": "ThemesEndpoint",
-        "importPath": "endpoints.templates",
-        "description": "endpoints.templates",
-        "isExtraImport": true,
-        "detail": "endpoints.templates",
         "documentation": {}
     },
     {
@@ -227,6 +196,30 @@
         "documentation": {}
     },
     {
+        "label": "modify_existing_page",
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "isExtraImport": true,
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "delete_page",
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "isExtraImport": true,
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_pages",
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "isExtraImport": true,
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
         "label": "PagesEndpoint",
         "kind": 6,
         "importPath": "endpoints.pages",
@@ -245,12 +238,30 @@
         "documentation": {}
     },
     {
-        "label": "ThemesEndpoint",
-        "kind": 6,
-        "importPath": "endpoints.templates",
-        "description": "endpoints.templates",
-        "peekOfCode": "class ThemesEndpoint:\n    def __init__(self, client: WordPressApiClient):\n        self.client = client\n    def create_template(self, name, header_title):\n        slug = name.lower().replace(\" \", \"-\")\n        payload = {\n            \"title\": name,\n            \"slug\": slug,\n            \"content\": f\"<h1>{header_title}</h1>\",  # Contenu par défaut.\n            \"excerpt\": \"Résumé automatique\",",
-        "detail": "endpoints.templates",
+        "label": "connect_to_db",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "create_table",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,\n        title TEXT,\n        content TEXT\n    )\n    ''')",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "save_page_to_db",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def save_page_to_db(page_id, title, content):\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(\"INSERT INTO pages (id, title, content) VALUES (?, ?, ?)\", (page_id, title, content))\n    conn.commit()\n    conn.close()\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")",
+        "detail": "interactions.pages",
         "documentation": {}
     },
     {
@@ -258,7 +269,34 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:\n        print(\"Veuillez entrer un nombre valide.\")\n        return",
+        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "modify_existing_page",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (ajouter/mettre à jour/supprimer un bouton) : \").strip().lower()\n    if operation == \"ajouter\":\n        add_more_buttons(page_id, [])\n    elif operation == \"mettre à jour\":\n        add_more_buttons(page_id, [])",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "list_all_pages",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def list_all_pages():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(\"SELECT id, title FROM pages\")\n    pages = cursor.fetchall()\n    if pages:\n        print(\"\\nPages disponibles :\")\n        for page in pages:\n            print(f\"ID: {page[0]} | Titre: {page[1]}\")\n    else:",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "delete_page",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def delete_page():\n    page_id = int(input(\"Entrez l'ID de la page à supprimer : \"))\n    # Supprimer la page\n    delete_response = pages_endpoint.delete_page(page_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Page {page_id} supprimée avec succès!\")\n        # Supprimer de la base de données\n        conn = connect_to_db()\n        cursor = conn.cursor()\n        cursor.execute(\"DELETE FROM pages WHERE id = ?\", (page_id,))",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -267,16 +305,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    while True:\n        operation = input(\"\\nQue souhaitez-vous faire ? (ajouter/mettre à jour/supprimer/fin) : \").strip().lower()\n        if operation == \"ajouter\":\n            try:\n                num_new_buttons = int(input(\"Combien de nouveaux boutons souhaitez-vous ajouter ? \"))\n                if num_new_buttons <= 0:\n                    print(\"Le nombre de boutons doit être supérieur à zéro.\")\n                    continue\n            except ValueError:",
-        "detail": "interactions.pages",
-        "documentation": {}
-    },
-    {
-        "label": "update_button",
-        "kind": 2,
-        "importPath": "interactions.pages",
-        "description": "interactions.pages",
-        "peekOfCode": "def update_button(existing_buttons):\n    try:\n        print(\"\\nListe des boutons existants :\")\n        for index, button in enumerate(existing_buttons):\n            print(f\"{index + 1}. {button.label} - {button.link}\")\n        button_index = int(input(\"\\nQuel bouton souhaitez-vous mettre à jour ? (Entrez le numéro) \")) - 1\n        if 0 <= button_index < len(existing_buttons):\n            button = existing_buttons[button_index]\n            button.label = input(f\"Nouveau texte du bouton (actuel: {button.label}): \") or button.label\n            button.link = input(f\"Nouveau lien du bouton (actuel: {button.link}): \") or button.link",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Ajout de boutons comme expliqué dans la fonction précédente\n    pass\n# Fonction pour supprimer un bouton d'une page\ndef delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -285,7 +314,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_button(existing_buttons):\n    try:\n        print(\"\\nListe des boutons existants :\")\n        for index, button in enumerate(existing_buttons):\n            print(f\"{index + 1}. {button.label} - {button.link}\")\n        button_index = int(input(\"\\nQuel bouton souhaitez-vous supprimer ? (Entrez le numéro) \")) - 1\n        if 0 <= button_index < len(existing_buttons):\n            deleted_button = existing_buttons.pop(button_index)\n            print(f\"Bouton '{deleted_button.label}' supprimé avec succès.\")\n            return True",
+        "peekOfCode": "def delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -294,7 +323,7 @@
         "kind": 5,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\npages_endpoint = PagesEndpoint(client)\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return",
+        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\npages_endpoint = PagesEndpoint(client)\n# Fonction pour se connecter à la base de données SQLite\ndef connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -303,7 +332,7 @@
         "kind": 5,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "pages_endpoint = PagesEndpoint(client)\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur combien de boutons il veut publier\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter à la page ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
+        "peekOfCode": "pages_endpoint = PagesEndpoint(client)\n# Fonction pour se connecter à la base de données SQLite\ndef connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -332,60 +361,6 @@
         "description": "interactions.posts",
         "peekOfCode": "posts_endpoint = PostsEndpoint(client)\n# Cas d'utilisation pour générer et publier des articles\ndef generate_and_publish_articles():\n    try:\n        max_buttons = int(input(\"Combien de boutons souhaitez-vous créer sur votre Post ? \"))\n        if max_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:\n        print(\"Veuillez entrer un nombre valide.\")",
         "detail": "interactions.posts",
-        "documentation": {}
-    },
-    {
-        "label": "create_template_with_user_buttons",
-        "kind": 2,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "def create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return\n    except ValueError:",
-        "detail": "interactions.templates",
-        "documentation": {}
-    },
-    {
-        "label": "update_template_buttons",
-        "kind": 2,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "def update_template_buttons(template_id, buttons):\n    \"\"\"\n    Met à jour le contenu du template avec des boutons dynamiques.\n    \"\"\"\n    containers = create_button_containers(buttons)\n    content = f\"<div>{''.join(containers)}</div>\"\n    # Mise à jour du template via l'API\n    update_response = templates_endpoint.update_template(\n        template_id=template_id,\n        content=content",
-        "detail": "interactions.templates",
-        "documentation": {}
-    },
-    {
-        "label": "create_button_containers",
-        "kind": 2,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "def create_button_containers(buttons):\n    \"\"\"\n    Organise les boutons en containers (3 boutons par ligne).\n    \"\"\"\n    containers = []\n    while buttons:\n        num_in_container = min(3, len(buttons))  # 3 boutons maximum par ligne\n        container_buttons = buttons[:num_in_container]\n        buttons = buttons[num_in_container:]\n        # Création de la structure HTML pour chaque ligne de boutons",
-        "detail": "interactions.templates",
-        "documentation": {}
-    },
-    {
-        "label": "list_all_templates",
-        "kind": 2,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "def list_all_templates():\n    \"\"\"\n    Liste tous les templates disponibles.\n    \"\"\"\n    templates = templates_endpoint.get_all_templates()\n    # Gestion de la réponse pour l'affichage des templates\n    if templates['status'] == \"success\":\n        print(\"Liste des templates disponibles :\")\n        for template in templates['data']:\n            print(f\"- ID : {template['id']}, Nom : {template['title']}\")",
-        "detail": "interactions.templates",
-        "documentation": {}
-    },
-    {
-        "label": "client",
-        "kind": 5,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "client = WordPressApiClient(base_url=BASE_URL)\ntemplates_endpoint = ThemesEndpoint(client)\ndef create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")",
-        "detail": "interactions.templates",
-        "documentation": {}
-    },
-    {
-        "label": "templates_endpoint",
-        "kind": 5,
-        "importPath": "interactions.templates",
-        "description": "interactions.templates",
-        "peekOfCode": "templates_endpoint = ThemesEndpoint(client)\ndef create_template_with_user_buttons():\n    \"\"\"\n    Crée un template en demandant à l'utilisateur combien de boutons il souhaite ajouter.\n    \"\"\"\n    try:\n        num_buttons = int(input(\"Combien de boutons souhaitez-vous ajouter au template ? \"))\n        if num_buttons <= 0:\n            print(\"Le nombre de boutons doit être supérieur à zéro.\")\n            return",
-        "detail": "interactions.templates",
         "documentation": {}
     },
     {
@@ -492,7 +467,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()  \n        elif choix == \"2\":\n            print(\"Merci d'avoir utilisé WordPress Page Manager. Au revoir!\")\n            break\n        else:",
+        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
         "detail": "main",
         "documentation": {}
     }
