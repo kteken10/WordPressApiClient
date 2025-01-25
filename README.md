@@ -20,14 +20,26 @@ wordpress_api_client/
 ├── wordpress_api_client/
 │   ├── __init__.py               # Package initialization
 │   ├── client.py                 # WordPress API Client class
+│   └── config.py                 # Configuration settings
+│   ├── auth.py               # Authentication management
 │   ├── endpoints/
 │   │   ├── __init__.py           # Endpoints module initialization
 │   │   ├── posts.py              # Posts management
 │   │   ├── pages.py              # Pages management
-│   │   ├── auth.py               # Authentication management
+│   ├── interactions/
+│   │   ├── __init__.py           # Endpoints module initialization
+│   │   ├── posts.py              # Posts interaction interaction
+│   │   ├── pages.py              # Pages interaction
 │   │   ├── exceptions.py         # Custom exceptions
-│   │   └── utils.py              # Utility functions
-│   └── config.py                 # Configuration settings
+│   ├── ui/
+│   │   ├── __init__.py           # Endpoints module initialization
+│   │   ├── button.py             #Button element html
+│   │   ├── container.py          #container element html
+│   │   ├── image.py              #image element html
+│   │   ├── text.py               #text element html
+│   │   ├── exceptions.py         # Custom exceptions
+
+
 │
 ├── main.py                       # Main application entry point
 └── requirements.txt              # Project dependencies
@@ -111,21 +123,12 @@ The application includes custom exception handling for:
 - Authentication failures
 - Page creation/modification issues
 
-## Performance Considerations
-
-- Uses efficient API calls
-- Minimal local storage overhead
-- Quick page management operations
 
 ## Security
 
 - Supports WordPress authentication
 - Secure API interaction
 - Local data storage with SQLite
-
-
-
-
 
 
 - Ensure WordPress REST API is enabled
