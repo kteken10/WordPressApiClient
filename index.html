@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple de Titre avec Ligne</title>
+    <style>
+        .title-container {
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title-container h1 {
+            position: relative;
+            margin: 0;
+            padding: 0 20px; /* Espacement à gauche et à droite du titre */
+            display: inline-block;
+        }
+
+        .line-left,
+        .line-right {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40%; /* Ajuste cette valeur selon le besoin */
+            height: 2px;
+            background-color: #2674F0;
+        }
+
+        .line-left {
+            left: 0;
+        }
+
+        .line-right {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title-container">
+        <h1>Titre</h1>
+        <span class="line-left"></span>
+        <span class="line-right"></span>
+    </div>
+
+</body>
+</html>

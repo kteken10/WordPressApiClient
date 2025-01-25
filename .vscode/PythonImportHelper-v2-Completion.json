@@ -188,14 +188,6 @@
         "documentation": {}
     },
     {
-        "label": "modify_existing_page",
-        "importPath": "interactions.pages",
-        "description": "interactions.pages",
-        "isExtraImport": true,
-        "detail": "interactions.pages",
-        "documentation": {}
-    },
-    {
         "label": "delete_page",
         "importPath": "interactions.pages",
         "description": "interactions.pages",
@@ -205,6 +197,14 @@
     },
     {
         "label": "list_all_pages",
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "isExtraImport": true,
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "modify_existing_page",
         "importPath": "interactions.pages",
         "description": "interactions.pages",
         "isExtraImport": true,
@@ -234,7 +234,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,",
+        "peekOfCode": "def connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(''' \n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -243,7 +243,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''\n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,\n        title TEXT,\n        content TEXT\n    )\n    ''')",
+        "peekOfCode": "def create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(''' \n    CREATE TABLE IF NOT EXISTS pages (\n        id INTEGER PRIMARY KEY,\n        title TEXT,\n        content TEXT\n    )\n    ''')",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -252,7 +252,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def save_page_to_db(page_id, title, content):\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(\"INSERT INTO pages (id, title, content) VALUES (?, ?, ?)\", (page_id, title, content))\n    conn.commit()\n    conn.close()\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")",
+        "peekOfCode": "def save_page_to_db(page_id, title, content):\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(\"INSERT INTO pages (id, title, content) VALUES (?, ?, ?)\", (page_id, title, content))\n    conn.commit()\n    conn.close()\n# Fonction pour créer la page initiale avec des boutons\ndef create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page à créer: \")",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -261,7 +261,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page : \")\n    # Ajouter le style personnalisé pour le titre\n    content = f\"\"\"\n    <h1 style=\"\n        position: relative;\n        text-align: center;\n        font-size: 2.5rem;\n        font-weight: bold;",
+        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page à créer: \")\n    # Ajouter le style personnalisé pour le titre\n    content = f\"\"\"\n    <h1 style=\"\n        position: relative;\n        text-align: center;\n        font-size: 2.5rem;\n    \">",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -297,7 +297,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Ajout de boutons comme expliqué dans la fonction précédente\n    pass\n# Fonction pour supprimer un bouton d'une page\ndef delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas\ncreate_page_with_buttons()",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Demander combien de boutons ajouter\n    num_buttons = int(input(\"Combien de boutons supplémentaires souhaitez-vous ajouter ? \"))\n    buttons = []\n    for i in range(num_buttons):\n        label = input(f\"Entrez le label du bouton {i+1} : \")\n        link = input(f\"Entrez le lien pour le bouton {i+1} : \")\n        # Ajouter le bouton à la liste\n        buttons.append(Button(\n            label=label,",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -306,7 +306,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_button(page_id):\n    # Supprimer un bouton existant de la page comme dans le script précédent\n    pass\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas\ncreate_page_with_buttons()",
+        "peekOfCode": "def delete_button(page_id):\n    button_id = int(input(\"Entrez l'ID du bouton à supprimer : \"))\n    # Suppression d'un bouton (logique à adapter selon la structure du client API)\n    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Le bouton {button_id} a été supprimé de la page {page_id}\")\n    else:\n        print(f\"Erreur lors de la suppression du bouton : {delete_response['message']}\")\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -324,7 +324,7 @@
         "kind": 5,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "pages_endpoint = PagesEndpoint(client)\n# Fonction pour se connecter à la base de données SQLite\ndef connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute('''",
+        "peekOfCode": "pages_endpoint = PagesEndpoint(client)\n# Fonction pour se connecter à la base de données SQLite\ndef connect_to_db():\n    conn = sqlite3.connect('pages.db')\n    return conn\n# Fonction pour créer la table si elle n'existe pas\ndef create_table():\n    conn = connect_to_db()\n    cursor = conn.cursor()\n    cursor.execute(''' ",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -360,7 +360,7 @@
         "kind": 6,
         "importPath": "ui.button",
         "description": "ui.button",
-        "peekOfCode": "class Button(HTMLElement):\n    def __init__(self, label: str, link: str, css_class: str = \"\", styles: str = \"\", target: str = \"_self\"):\n        # Spécifie la largeur et le centrage pour chaque bouton\n        button_styles = f\"{styles} width: 320px; color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 30px; display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;\" \n        super().__init__(tag=\"a\", content=label, css_class=css_class, styles=button_styles, href=link, target=target)\nclass ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:",
+        "peekOfCode": "class Button(HTMLElement):\n    def __init__(self, label: str, link: str, css_class: str = \"\", styles: str = \"\", target: str = \"_self\"):\n        # Spécifie la largeur et le centrage pour chaque bouton\n        button_styles = f\"{styles} width: 320px; color: white; background-color: blue; padding: 10px 20px; text-decoration: none; border-radius: 30px; display: flex; justify-content: center; align-items: center; text-align: center; height: 50px;\"\n        super().__init__(tag=\"a\", content=label, css_class=css_class, styles=button_styles, href=link, target=target)\nclass ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:",
         "detail": "ui.button",
         "documentation": {}
     },
@@ -369,7 +369,7 @@
         "kind": 6,
         "importPath": "ui.button",
         "description": "ui.button",
-        "peekOfCode": "class ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):\n            row_buttons = self.buttons[i:i + 3]\n            row_content = \"\".join([button.render() for button in row_buttons])\n            # Conteneur avec largeur de 1000px et des boutons avec une largeur de 300px",
+        "peekOfCode": "class ButtonContainer(HTMLElement):\n    def __init__(self, buttons: list[Button], styles: str = \"\"):\n        self.buttons = buttons\n        super().__init__(tag=\"div\", styles=styles)\n    def render(self) -> str:\n        rows = []\n        for i in range(0, len(self.buttons), 3):\n            row_buttons = self.buttons[i:i + 3]\n            row_content = \"\".join([button.render() for button in row_buttons])\n            # Gestion de l'alignement pour une ou deux colonnes",
         "detail": "ui.button",
         "documentation": {}
     },
@@ -455,11 +455,11 @@
         "documentation": {}
     },
     {
-        "label": "launchWordPressApi",
+        "label": "main",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def launchWordPressApi():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = int(input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \"))\n        if choix == \"1\":\n            create_page_with_buttons()\n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()",
+        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()  \n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()  ",
         "detail": "main",
         "documentation": {}
     }

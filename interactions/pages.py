@@ -18,7 +18,7 @@ def connect_to_db():
 def create_table():
     conn = connect_to_db()
     cursor = conn.cursor()
-    cursor.execute('''
+    cursor.execute(''' 
     CREATE TABLE IF NOT EXISTS pages (
         id INTEGER PRIMARY KEY,
         title TEXT,
@@ -39,7 +39,7 @@ def save_page_to_db(page_id, title, content):
 # Fonction pour créer la page initiale avec des boutons
 def create_page_with_buttons():
     # Demander à l'utilisateur le titre de la page
-    title = input("Entrez le titre de la page : ")
+    title = input("Entrez le titre de la page à créer: ")
 
     # Ajouter le style personnalisé pour le titre
     content = f"""
@@ -47,8 +47,6 @@ def create_page_with_buttons():
         position: relative;
         text-align: center;
         font-size: 2.5rem;
-        font-weight: bold;
-        margin-bottom: 2rem;
     ">
         {title}
         <span style="
@@ -56,20 +54,20 @@ def create_page_with_buttons():
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 100px;
+            width: 40%; 
             height: 2px;
             background-color: #2674F0;
-            left: -120px;
+            left: 0px;
         "></span>
         <span style="
             content: '';
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 100px;
+            width: 40%; 
             height: 2px;
             background-color: #2674F0;
-            right: -120px;
+            right:0px;
         "></span>
     </h1>
     """
@@ -103,13 +101,13 @@ def create_page_with_buttons():
             styles=""
         ))
 
-    # Créer un container pour les boutons
+    # Créer un container pour les boutons avec un maximum de 3 boutons par ligne
     containers = ButtonContainer(buttons)
     content += containers.render()
 
     # Créer la page initiale avec ces boutons
     create_response = pages_endpoint.create_page(
-        title=title,
+        title="Compréhension écrite Pro ",
         content=content,
         status="publish"
     )
@@ -178,16 +176,46 @@ def delete_page():
     else:
         print(f"Erreur lors de la suppression de la page: {delete_response['message']}")
 
-# Fonction pour ajouter des boutons à une page
 def add_more_buttons(page_id, existing_buttons):
-    # Ajout de boutons comme expliqué dans la fonction précédente
-    pass
+    # Demander combien de boutons ajouter
+    num_buttons = int(input("Combien de boutons supplémentaires souhaitez-vous ajouter ? "))
+    
+    buttons = []
+    for i in range(num_buttons):
+        label = input(f"Entrez le label du bouton {i+1} : ")
+        link = input(f"Entrez le lien pour le bouton {i+1} : ")
+        
+        # Ajouter le bouton à la liste
+        buttons.append(Button(
+            label=label,
+            link=link,
+            styles=""
+        ))
+
+    # Créer un container pour les nouveaux boutons avec un maximum de 3 boutons par ligne
+    containers = ButtonContainer(existing_buttons + buttons)
+    additional_content = containers.render()
+
+    # Ajouter les boutons à la page existante
+    page_content = f" {additional_content}"
+    update_response = pages_endpoint.update_page(page_id, content=page_content)
+
+    if update_response['status'] == "success":
+        print(f"Les boutons ont été ajoutés avec succès à la page {page_id}")
+    else:
+        print(f"Erreur lors de l'ajout des boutons : {update_response['message']}")
 
 # Fonction pour supprimer un bouton d'une page
 def delete_button(page_id):
-    # Supprimer un bouton existant de la page comme dans le script précédent
-    pass
-
+    button_id = int(input("Entrez l'ID du bouton à supprimer : "))
+    
+    # Suppression d'un bouton (logique à adapter selon la structure du client API)
+    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)
+    
+    if delete_response['status'] == "success":
+        print(f"Le bouton {button_id} a été supprimé de la page {page_id}")
+    else:
+        print(f"Erreur lors de la suppression du bouton : {delete_response['message']}")
+        
 # Lancer la création de la page avec des boutons
 create_table()  # Crée la table si elle n'existe pas
-create_page_with_buttons()
