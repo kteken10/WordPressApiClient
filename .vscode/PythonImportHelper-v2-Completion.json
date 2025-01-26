@@ -270,7 +270,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (a pour  ajouter / s pour supprimer un bouton) : \").strip().lower()\n    if operation == \"ajouter\":\n        add_more_buttons(page_id, [])\n    elif operation == \"m\":\n        add_more_buttons(page_id, [])",
+        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (a pour  ajouter /m pour  mettre à jour un bouton / s pour supprimer un bouton) : \").strip().lower()\n    if operation == \"a\":\n        add_more_buttons(page_id, [])\n    elif operation == \"m\":\n        update_button(page_id)",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -298,6 +298,15 @@
         "importPath": "interactions.pages",
         "description": "interactions.pages",
         "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Récupérer le contenu existant de la page\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    # Extraire les boutons existants à partir du contenu HTML\n    import re\n    def extract_existing_buttons(content):\n        # Vérifier si content est un dictionnaire avec 'rendered'",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "update_button",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def update_button(page_id):\n    # Récupérer le contenu de la page existante\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    existing_content = page_response['data']['content']['rendered']\n    # Extraire les boutons existants\n    import re\n    button_pattern = r'<a[^>]*href=\"([^\"]+)\"[^>]*style=\"([^\"]*)\">([^<]+)</a>'",
         "detail": "interactions.pages",
         "documentation": {}
     },
