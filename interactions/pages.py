@@ -175,30 +175,73 @@ def delete_page():
         conn.close()
     else:
         print(f"Erreur lors de la suppression de la page: {delete_response['message']}")
-
 def add_more_buttons(page_id, existing_buttons):
-    # Demander combien de boutons ajouter
-    num_buttons = int(input("Combien de boutons supplémentaires souhaitez-vous ajouter ? "))
+    # Récupérer le contenu existant de la page
+    page_response = pages_endpoint.get_page(page_id)
     
-    buttons = []
+    if page_response['status'] != "success":
+        print(f"Erreur lors de la récupération de la page : {page_response['message']}")
+        return
+
+    # Extraire les boutons existants à partir du contenu HTML
+    import re
+    
+    def extract_existing_buttons(content):
+        # Vérifier si content est un dictionnaire avec 'rendered'
+        if isinstance(content, dict):
+            content = content.get('rendered', '')
+        
+        # Convertir en chaîne si ce n'est pas déjà le cas
+        content = str(content)
+        
+        # Chercher tous les boutons existants dans le contenu HTML
+        button_pattern = r'<a[^>]*href="([^"]+)"[^>]*>([^<]+)</a>'
+        buttons = []
+        
+        for match in re.finditer(button_pattern, content):
+            link, label = match.groups()
+            buttons.append(Button(
+                label=label,
+                link=link,
+                styles=""
+            ))
+        
+        return buttons
+
+    # Récupérer le contenu rendu de la page
+    existing_content = page_response['data']['content']
+    
+    # Extraire les boutons existants
+    existing_buttons = extract_existing_buttons(existing_content)
+    
+    # Demander combien de boutons ajouter
+    try:
+        num_buttons = int(input("Combien de boutons supplémentaires souhaitez-vous ajouter ? "))
+    except ValueError:
+        print("Veuillez entrer un nombre valide.")
+        return
+
+    # Ajouter de nouveaux boutons
     for i in range(num_buttons):
         label = input(f"Entrez le label du bouton {i+1} : ")
         link = input(f"Entrez le lien pour le bouton {i+1} : ")
         
-        # Ajouter le bouton à la liste
-        buttons.append(Button(
+        existing_buttons.append(Button(
             label=label,
             link=link,
             styles=""
         ))
 
-    # Créer un container pour les nouveaux boutons avec un maximum de 3 boutons par ligne
-    containers = ButtonContainer(existing_buttons + buttons)
-    additional_content = containers.render()
+    # Créer un container pour tous les boutons avec un maximum de 3 boutons par ligne
+    containers = ButtonContainer(existing_buttons)
+    updated_content = containers.render()
 
-    # Ajouter les boutons à la page existante
-    page_content = f" {additional_content}"
-    update_response = pages_endpoint.update_page(page_id, content=page_content)
+    # Trouver et remplacer uniquement le contenu des boutons
+    import re
+    final_content =  updated_content
+
+    # Mettre à jour la page avec le nouveau contenu
+    update_response = pages_endpoint.update_page(page_id, content=final_content)
 
     if update_response['status'] == "success":
         print(f"Les boutons ont été ajoutés avec succès à la page {page_id}")
@@ -218,4 +261,4 @@ def delete_button(page_id):
         print(f"Erreur lors de la suppression du bouton : {delete_response['message']}")
         
 # Lancer la création de la page avec des boutons
-create_table()  # Crée la table si elle n'existe pas
+create_table()

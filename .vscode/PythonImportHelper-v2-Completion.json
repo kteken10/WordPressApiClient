@@ -297,7 +297,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Demander combien de boutons ajouter\n    num_buttons = int(input(\"Combien de boutons supplémentaires souhaitez-vous ajouter ? \"))\n    buttons = []\n    for i in range(num_buttons):\n        label = input(f\"Entrez le label du bouton {i+1} : \")\n        link = input(f\"Entrez le lien pour le bouton {i+1} : \")\n        # Ajouter le bouton à la liste\n        buttons.append(Button(\n            label=label,",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Récupérer le contenu existant de la page\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    # Extraire les boutons existants à partir du contenu HTML\n    import re\n    def extract_existing_buttons(content):\n        # Vérifier si content est un dictionnaire avec 'rendered'",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -306,7 +306,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_button(page_id):\n    button_id = int(input(\"Entrez l'ID du bouton à supprimer : \"))\n    # Suppression d'un bouton (logique à adapter selon la structure du client API)\n    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Le bouton {button_id} a été supprimé de la page {page_id}\")\n    else:\n        print(f\"Erreur lors de la suppression du bouton : {delete_response['message']}\")\n# Lancer la création de la page avec des boutons\ncreate_table()  # Crée la table si elle n'existe pas",
+        "peekOfCode": "def delete_button(page_id):\n    button_id = int(input(\"Entrez l'ID du bouton à supprimer : \"))\n    # Suppression d'un bouton (logique à adapter selon la structure du client API)\n    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Le bouton {button_id} a été supprimé de la page {page_id}\")\n    else:\n        print(f\"Erreur lors de la suppression du bouton : {delete_response['message']}\")\n# Lancer la création de la page avec des boutons\ncreate_table()",
         "detail": "interactions.pages",
         "documentation": {}
     },

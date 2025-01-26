@@ -19,6 +19,33 @@ class PagesEndpoint:
             "status": status,
         }
         return self.client.create("pages", page_data)
+    def get_page(self, page_id):
+        print("id à récupérer ",page_id)
+        """
+        Récupère une page spécifique par son ID.
+        
+        :param page_id: L'ID de la page à récupérer.
+        :return: Un dictionnaire avec le statut et les données de la page.
+        """
+        try:
+            response = self.client.recup(f"pages/{page_id}")
+            
+            # Si la réponse est un dictionnaire de succès avec des données
+            if response['status'] == 'success':
+                return {
+                    'status': 'success',
+                    'data': response['data']
+                }
+            else:
+                return {
+                    'status': 'error',
+                    'message': response.get('message', "Impossible de récupérer les détails de la page")
+                }
+        except Exception as e:
+            return {
+                'status': 'error',
+                'message': str(e)
+            }
 
     def get_pages(self):
         """
