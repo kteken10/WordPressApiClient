@@ -10,6 +10,7 @@ def main():
         elif choix == "2":
             modify_existing_page()
         elif choix == "3":
+            list_all_pages()
             delete_page()  
         elif choix == "4":
             list_all_pages()  
