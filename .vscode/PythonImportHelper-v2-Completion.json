@@ -24,15 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "sqlite3",
         "kind": 6,
         "isExtraImport": true,
@@ -95,6 +86,24 @@
         "description": "ui.button",
         "isExtraImport": true,
         "detail": "ui.button",
+        "documentation": {}
+    },
+    {
+        "label": "re",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "re",
+        "description": "re",
+        "detail": "re",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -188,14 +197,6 @@
         "documentation": {}
     },
     {
-        "label": "delete_page",
-        "importPath": "interactions.pages",
-        "description": "interactions.pages",
-        "isExtraImport": true,
-        "detail": "interactions.pages",
-        "documentation": {}
-    },
-    {
         "label": "list_all_pages",
         "importPath": "interactions.pages",
         "description": "interactions.pages",
@@ -261,16 +262,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page à créer: \")\n    # Ajouter le style personnalisé pour le titre\n    content = f\"\"\"\n    <h1 style=\"\n        position: relative;\n        text-align: center;\n        font-size: 2.5rem;\n    \">",
-        "detail": "interactions.pages",
-        "documentation": {}
-    },
-    {
-        "label": "modify_existing_page",
-        "kind": 2,
-        "importPath": "interactions.pages",
-        "description": "interactions.pages",
-        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (a pour  ajouter /m pour  mettre à jour un bouton / s pour supprimer un bouton) : \").strip().lower()\n    if operation == \"a\":\n        add_more_buttons(page_id, [])\n    elif operation == \"m\":\n        update_button(page_id)",
+        "peekOfCode": "def create_page_with_buttons():\n    # Demander à l'utilisateur le titre de la page\n    title = input(\"Entrez le titre de la page à créer: \")\n    # Ajouter le style personnalisé pour le titre\n    content = f\"\"\"\n    <h1 style=\"position: relative; text-align: center; font-size: 2.5rem;\">\n        {title}\n        <span style=\"position: absolute; top: 50%; transform: translateY(-50%); width: 40%; height: 2px; background-color: #2674F0; left: 0px;\"></span>\n        <span style=\"position: absolute; top: 50%; transform: translateY(-50%); width: 40%; height: 2px; background-color: #2674F0; right:0px;\"></span>\n    </h1>",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -284,11 +276,11 @@
         "documentation": {}
     },
     {
-        "label": "delete_page",
+        "label": "modify_existing_page",
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_page():\n    page_id = int(input(\"Entrez l'ID de la page à supprimer : \"))\n    # Supprimer la page\n    delete_response = pages_endpoint.delete_page(page_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Page {page_id} supprimée avec succès!\")\n        # Supprimer de la base de données\n        conn = connect_to_db()\n        cursor = conn.cursor()\n        cursor.execute(\"DELETE FROM pages WHERE id = ?\", (page_id,))",
+        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (a pour ajouter / m pour mettre à jour un bouton / s pour supprimer un bouton) : \").strip().lower()\n    if operation == \"a\":\n        add_more_buttons(page_id, [])\n    elif operation == \"m\":\n        update_button(page_id)",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -297,7 +289,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Récupérer le contenu existant de la page\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    # Extraire les boutons existants à partir du contenu HTML\n    import re\n    def extract_existing_buttons(content):\n        # Vérifier si content est un dictionnaire avec 'rendered'",
+        "peekOfCode": "def add_more_buttons(page_id, existing_buttons):\n    # Récupérer le contenu existant de la page\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    # Récupérer le contenu rendu de la page\n    existing_content = page_response['data']['content']\n    # Extraire les boutons existants\n    existing_buttons = extract_existing_buttons(existing_content)",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -306,7 +298,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def update_button(page_id):\n    # Récupérer le contenu de la page existante\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    existing_content = page_response['data']['content']['rendered']\n    # Extraire les boutons existants\n    import re\n    button_pattern = r'<a[^>]*href=\"([^\"]+)\"[^>]*style=\"([^\"]*)\">([^<]+)</a>'",
+        "peekOfCode": "def update_button(page_id):\n    # Récupérer le contenu de la page existante\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    existing_content = page_response['data']['content']\n    buttons = extract_existing_buttons(existing_content)\n    if not buttons:\n        print(\"Aucun bouton n'a été trouvé sur cette page.\")",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -316,6 +308,24 @@
         "importPath": "interactions.pages",
         "description": "interactions.pages",
         "peekOfCode": "def delete_button(page_id):\n    # Récupérer le contenu de la page existante\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    existing_content = page_response['data']['content']['rendered']\n    # Extraire les boutons existants\n    import re\n    button_pattern = r'<a[^>]*href=\"([^\"]+)\"[^>]*>([^<]+)</a>'",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "delete_page",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def delete_page():\n    page_id = int(input(\"Entrez l'ID de la page à supprimer : \"))\n    # Supprimer la page\n    delete_response = pages_endpoint.delete_page(page_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Page {page_id} supprimée avec succès!\")\n        # Supprimer de la base de données\n        conn = connect_to_db()\n        cursor = conn.cursor()\n        cursor.execute(\"DELETE FROM pages WHERE id = ?\", (page_id,))",
+        "detail": "interactions.pages",
+        "documentation": {}
+    },
+    {
+        "label": "extract_existing_buttons",
+        "kind": 2,
+        "importPath": "interactions.pages",
+        "description": "interactions.pages",
+        "peekOfCode": "def extract_existing_buttons(content):\n        # Vérifier si content est un dictionnaire avec 'rendered'\n        if isinstance(content, dict):\n            content = content.get('rendered', '')\n        # Convertir en chaîne si ce n'est pas déjà le cas\n        content = str(content)\n        # Chercher tous les boutons existants dans le contenu HTML\n        button_pattern = r'<a[^>]*href=\"([^\"]+)\"[^>]*>([^<]+)</a>'\n        buttons = []\n        for match in re.finditer(button_pattern, content):",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -468,7 +478,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()  \n        elif choix == \"2\":\n            modify_existing_page()\n        elif choix == \"3\":\n            delete_page()  ",
+        "peekOfCode": "def main():\n    print(\"Bienvenue dans l'application WordPress Page Manager!\")\n    while True:\n        choix = input(\"\\nQue souhaitez-vous faire ?\\n1. Créer une nouvelle page avec des boutons\\n2. Modifier une page existante\\n3. Supprimer une page\\n4. Lister toutes les pages disponibles\\n5. Quitter\\nVotre choix : \").strip()\n        if choix == \"1\":\n            create_page_with_buttons()  \n        elif choix == \"2\":\n            modify_existing_page()\n        # elif choix == \"3\":\n        #     delete_page()  ",
         "detail": "main",
         "documentation": {}
     }
