@@ -131,13 +131,13 @@ def modify_existing_page():
     page_id = int(input("Entrez l'ID de la page à modifier : "))
 
     # Demander à l'utilisateur ce qu'il souhaite faire
-    operation = input("\nQue souhaitez-vous faire ? (ajouter/mettre à jour/supprimer un bouton) : ").strip().lower()
+    operation = input("\nQue souhaitez-vous faire ? (a pour  ajouter / s pour supprimer un bouton) : ").strip().lower()
 
     if operation == "ajouter":
         add_more_buttons(page_id, [])
-    elif operation == "mettre à jour":
+    elif operation == "m":
         add_more_buttons(page_id, [])
-    elif operation == "supprimer":
+    elif operation == "s":
         delete_button(page_id)
     else:
         print("Option invalide.")
@@ -250,15 +250,59 @@ def add_more_buttons(page_id, existing_buttons):
 
 # Fonction pour supprimer un bouton d'une page
 def delete_button(page_id):
-    button_id = int(input("Entrez l'ID du bouton à supprimer : "))
+    # Récupérer le contenu de la page existante
+    page_response = pages_endpoint.get_page(page_id)
     
-    # Suppression d'un bouton (logique à adapter selon la structure du client API)
-    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)
+    if page_response['status'] != "success":
+        print(f"Erreur lors de la récupération de la page : {page_response['message']}")
+        return
+
+    existing_content = page_response['data']['content']['rendered']
+
+    # Extraire les boutons existants
+    import re
+    button_pattern = r'<a[^>]*href="([^"]+)"[^>]*>([^<]+)</a>'
+    buttons = []
     
-    if delete_response['status'] == "success":
-        print(f"Le bouton {button_id} a été supprimé de la page {page_id}")
+    for match in re.finditer(button_pattern, existing_content):
+        link, label = match.groups()
+        buttons.append({'link': link, 'label': label})
+
+    if not buttons:
+        print("Aucun bouton n'a été trouvé sur cette page.")
+        return
+
+    # Lister les boutons disponibles
+    print("\nBoutons disponibles sur la page :")
+    for i, button in enumerate(buttons):
+        print(f"{i + 1}. Label : {button['label']}, Lien : {button['link']}")
+
+    # Demander à l'utilisateur quel bouton supprimer
+    try:
+        button_index = int(input("Entrez le numéro du bouton à supprimer : ")) - 1
+        if button_index < 0 or button_index >= len(buttons):
+            print("Numéro invalide.")
+            return
+    except ValueError:
+        print("Veuillez entrer un numéro valide.")
+        return
+
+    # Supprimer le bouton du contenu
+    button_to_remove = buttons[button_index]
+    updated_content = re.sub(
+        rf'<a[^>]*href="{re.escape(button_to_remove["link"])}"[^>]*>{re.escape(button_to_remove["label"])}</a>',
+        '',
+        existing_content
+    )
+
+    # Mettre à jour la page avec le nouveau contenu
+    update_response = pages_endpoint.update_page(page_id, content=updated_content)
+
+    if update_response['status'] == "success":
+        print(f"Le bouton '{button_to_remove['label']}' a été supprimé avec succès de la page {page_id}.")
     else:
-        print(f"Erreur lors de la suppression du bouton : {delete_response['message']}")
+        print(f"Erreur lors de la mise à jour de la page : {update_response['message']}")
+
         
 # Lancer la création de la page avec des boutons
 create_table()

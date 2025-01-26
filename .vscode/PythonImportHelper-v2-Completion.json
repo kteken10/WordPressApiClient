@@ -270,7 +270,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (ajouter/mettre à jour/supprimer un bouton) : \").strip().lower()\n    if operation == \"ajouter\":\n        add_more_buttons(page_id, [])\n    elif operation == \"mettre à jour\":\n        add_more_buttons(page_id, [])",
+        "peekOfCode": "def modify_existing_page():\n    # Lister toutes les pages existantes\n    list_all_pages()\n    page_id = int(input(\"Entrez l'ID de la page à modifier : \"))\n    # Demander à l'utilisateur ce qu'il souhaite faire\n    operation = input(\"\\nQue souhaitez-vous faire ? (a pour  ajouter / s pour supprimer un bouton) : \").strip().lower()\n    if operation == \"ajouter\":\n        add_more_buttons(page_id, [])\n    elif operation == \"m\":\n        add_more_buttons(page_id, [])",
         "detail": "interactions.pages",
         "documentation": {}
     },
@@ -306,7 +306,7 @@
         "kind": 2,
         "importPath": "interactions.pages",
         "description": "interactions.pages",
-        "peekOfCode": "def delete_button(page_id):\n    button_id = int(input(\"Entrez l'ID du bouton à supprimer : \"))\n    # Suppression d'un bouton (logique à adapter selon la structure du client API)\n    delete_response = pages_endpoint.delete_button_from_page(page_id, button_id)\n    if delete_response['status'] == \"success\":\n        print(f\"Le bouton {button_id} a été supprimé de la page {page_id}\")\n    else:\n        print(f\"Erreur lors de la suppression du bouton : {delete_response['message']}\")\n# Lancer la création de la page avec des boutons\ncreate_table()",
+        "peekOfCode": "def delete_button(page_id):\n    # Récupérer le contenu de la page existante\n    page_response = pages_endpoint.get_page(page_id)\n    if page_response['status'] != \"success\":\n        print(f\"Erreur lors de la récupération de la page : {page_response['message']}\")\n        return\n    existing_content = page_response['data']['content']['rendered']\n    # Extraire les boutons existants\n    import re\n    button_pattern = r'<a[^>]*href=\"([^\"]+)\"[^>]*>([^<]+)</a>'",
         "detail": "interactions.pages",
         "documentation": {}
     },
